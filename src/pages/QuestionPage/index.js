@@ -19,7 +19,7 @@ const QuestionPage = () => {
             setQuestions(questionData.data.data.question)
             setIsLoading(false)
         } catch (error) {
-            SwalFire('error', error.response.data.message)
+            SwalFire('error', error.response.data.message + '. Silahkan refresh halaman')
         }
     }
     useEffect(() => {
