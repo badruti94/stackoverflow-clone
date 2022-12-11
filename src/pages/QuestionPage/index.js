@@ -26,6 +26,7 @@ const QuestionPage = () => {
         getData()
     }, [])
 
+    const isLogin = localStorage.getItem('login')
 
     return (
         <Template>
@@ -37,6 +38,7 @@ const QuestionPage = () => {
                     color='primary'
                     className='mb-4'
                     onClick={() => navigate('/question/create')}
+                    style={{ display: isLogin ? '' : 'none' }}
                 >
                     <i className="fa fa-plus"></i> Buat Pertanyaan
                 </Button>

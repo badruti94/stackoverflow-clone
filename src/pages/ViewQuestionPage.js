@@ -61,6 +61,7 @@ const ViewQuestionPage = () => {
 
     const isBelongToUser = () => localStorage.getItem('username') === question?.user.username
     const isBelongToUserComment = (username) => localStorage.getItem('username') === username
+    const isLogin = localStorage.getItem('login')
 
     const handleCommentSetTrue = async (id) => {
         try {
@@ -162,15 +163,20 @@ const ViewQuestionPage = () => {
                     </div>
                 </CardBody>
             </Card>
-            <Card className='mx-auto'
+            <Card
+                className='mx-auto'
                 style={{ width: '85%', marginBottom: 400 }}
             >
                 <CardBody>
                     {comments && comments.map(comment =>
                         Comment(comment)
                     )}
-                    <Alert color='' className='border border-dark' >
-                        <Form onSubmit={handleSubmitComment} >
+                    <Alert
+                        color=''
+                        className='border border-dark'
+                        style={{ display: isLogin ? '' : 'none' }}
+                    >
+                        <Form onSubmit={handleSubmitComment}>
                             <Input
                                 id="comment"
                                 name="comment"
